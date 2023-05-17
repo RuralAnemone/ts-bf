@@ -26,8 +26,8 @@ async function compile(source: string): Promise<string> {
 		}
 	}
 
-	out = (await minify(out)).code;
-	if (typeof out === 'undefined') throw new Error('Failed to minify code');
+	// out = (await minify(out)).code;
+	// if (typeof out === 'undefined') throw new Error('Failed to minify code');
 
 	return out;
 }
