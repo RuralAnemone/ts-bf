@@ -29,3 +29,24 @@ describe('single character', () => {
 		expect(compile(']')).resolves.toBe(boilerplate + '\n}');
 	});
 });
+
+describe('multiple characters', () => {
+	test('++', () => {
+		expect(compile('++')).resolves.toBe(boilerplate + '\nmemory[memoryPointer]++;\nmemory[memoryPointer]++;');
+	});
+	test('--', () => {
+		expect(compile('--')).resolves.toBe(boilerplate + '\nmemory[memoryPointer]--;\nmemory[memoryPointer]--;');
+	});
+	test('>>', () => {
+		expect(compile('>>')).resolves.toBe(boilerplate + '\nmemoryPointer++;\nmemoryPointer++;');
+	});
+	test('<<', () => {
+		expect(compile('<<')).resolves.toBe(boilerplate + '\nmemoryPointer--;\nmemoryPointer--;');
+	});
+});
+
+describe('real functions', () => {
+	test('[-]', () => {
+		expect(compile('[-]')).resolves.toBe(boilerplate + '\nwhile (memory[memoryPointer] != 0) {\nmemory[memoryPointer]--;\n}');
+	});
+});
