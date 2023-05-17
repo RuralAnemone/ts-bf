@@ -20,5 +20,8 @@
   },
   "dependencies": {
     "terser": "^5.17.4"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
