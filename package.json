@@ -6,7 +6,7 @@
   "repository": "https://github.com/RuralAnemone/ts-bf",
   "author": "Isaiah W <64103005+RuralAnemone@users.noreply.github.com>",
   "license": "GNU GPL v3",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
