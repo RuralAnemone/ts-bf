@@ -1,7 +1,7 @@
 import { minify } from 'terser'
 import { readFileSync } from 'fs'
 
-async function compile(source: string): Promise<string></string> {
+async function compile(source: string): Promise<string> {
 	let out: string | undefined = readFileSync('./boilerplate.js', 'utf8');
 	let commands = source.split('\n');
 
