@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>brainfuck</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>brainfuck</title>
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
-<body>
-	
-</body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <link
+      rel="stylesheet"
+      data-name="vs/editor/editor.main"
+      href="https://cdn.jsdelivr.net/npm/monaco-editor@0.38.0/min/vs/editor/editor.main.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="bf.js"></script>
+    <script>
+      function compile() {
+        compileBF(editor.getValue());
+      }
+
+      function interpret() {
+        interpretBF(editor.getValue());
+      }
+    </script>
+  </head>
+  <body>
+    <h1>brainfuck compiler and interpreter</h1>
+    <div class="main">
+      <div class="resize-container">
+        <div class="editor-container">
+          <div class="editor"></div>
+        </div>
+        <div class="run-buttons">
+          <button onclick="interpret()">run code</button>
+          <button onclick="compile()">show compiled code</button>
+        </div>
+      </div>
+      <div class="output">
+        <p>output:</p>
+        <textarea readonly class="output-text"></textarea>
+      </div>
+    </div>
+
+    <script>
+      let require = {
+        paths: {
+          vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.38.0/min/vs",
+        },
+      };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.38.0/min/vs/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.38.0/min/vs/editor/editor.main.nls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.38.0/min/vs/editor/editor.main.js"></script>
+
+    <script>
+      let editor = monaco.editor.create(document.querySelector(".editor"), {
+        value: ",>,[-<+>].\n",
+        language: "bf",
+        theme: "vs-dark",
+      });
+      monaco.editor.colorizeElement(editor);
+    </script>
+  </body>
 </html>

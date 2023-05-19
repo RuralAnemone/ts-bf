@@ -39,3 +39,7 @@ async function compileBF(source) {
 
 	return (await minify(out)).code;
 }
+
+function interpretBF() {
+	
+}
